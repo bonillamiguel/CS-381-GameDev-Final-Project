@@ -63,8 +63,12 @@ Smart Merge reduces conflicts but doesn't remove them. Avoid having two people e
 
 The game runs Java code at runtime using a JDK bundled under `Assets/StreamingAssets/jdk/`. That folder is too big for Git, so it's ignored, and **each person downloads it separately**:
 
-1. Go to [Eclipse Temurin](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk) and download the **JDK** for **Windows x64** as a **`.zip`**. Don't use the `.msi` installer.
-2. Unzip it. You'll get a folder named something like `jdk-<version>`.
+1. Go to [Eclipse Temurin 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=21) and download **Temurin 21 LTS** (the latest `21.x` release) with these settings:
+   - Operating system: **Windows**
+   - Architecture: **x64**
+   - Package type: **JDK**, not JRE
+   - Format: **`.zip`**, not the `.msi` installer
+2. Unzip it. You'll get a folder named something like `jdk-21.0.x+y`.
 3. Rename that folder to `jdk` and move it to `Assets/StreamingAssets/`. Create `StreamingAssets` if it doesn't exist.
 4. Check that it worked. From the repo folder in PowerShell:
 
@@ -73,7 +77,9 @@ The game runs Java code at runtime using a JDK bundled under `Assets/StreamingAs
    .\Assets\StreamingAssets\jdk\bin\java.exe -version
    ```
 
-   If `java.exe` is at `Assets/StreamingAssets/jdk/jdk-<version>/bin/java.exe`, you have one folder level too many. Move the contents up a level.
+   The `-version` output should start with `openjdk version "21.`.
+
+   If `java.exe` is at `Assets/StreamingAssets/jdk/jdk-21.0.x+y/bin/java.exe`, you have one folder level too many. Move the contents up a level.
 
 Unity imports the JDK the next time it opens, which takes a minute. Never commit anything from this folder.
 
@@ -95,12 +101,17 @@ Other conventions:
 
 ### Team
 
-| Name | Role | Areas |
-| ---- | ---- | ----- |
-|      |      |       |
+| Name     | Main areas | Secondary |
+| -------- | ---------- | --------- |
+| Miguel   | Player controller, combat, dash, weapons | Boss fights |
+| Qizhang  | Enemy types and AI | Balancing / difficulty curve |
+| Harrison | Rooms, floors, progression, repo setup, Java coding opening (LeetGrind) | Save data / meta-progression |
+| Santiago | UI, upgrade menus, tutorial, story, art and audio | Play-test notes and feedback log |
 
 ### Third-party assets
 
+Add a row here for every asset you import into `Assets/ThirdParty/`.
+
 | Asset | Author | License | Link |
 | ----- | ------ | ------- | ---- |
-|       |        |         |      |
+| Eclipse Temurin 21 (JDK, bundled at runtime) | Eclipse Adoptium | GPLv2 with Classpath Exception | [adoptium.net](https://adoptium.net/temurin/) |

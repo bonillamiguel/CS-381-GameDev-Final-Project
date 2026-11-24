@@ -69,7 +69,8 @@ The game runs Java code at runtime using a JDK bundled under `Assets/StreamingAs
    - Package type: **JDK**, not JRE
    - Format: **`.zip`**, not the `.msi` installer
 2. Unzip it. You'll get a folder named something like `jdk-21.0.x+y`.
-3. Rename that folder to `jdk` and move it to `Assets/StreamingAssets/`. Create `StreamingAssets` if it doesn't exist.
+3. Create the folder `Assets/StreamingAssets/jdk/` in the repo. Then copy the **contents** of the `jdk-21.0.x+y` folder into it: `bin`, `conf`, `lib`, `legal`, `NOTICE` and `release`.
+   - **Skip `jmods` and `include`.** Those are only for building custom runtimes and native code, not for running Java, and they add about 80 MB to the game build.
 4. Check that it worked. From the repo folder in PowerShell:
 
    ```powershell
@@ -77,7 +78,13 @@ The game runs Java code at runtime using a JDK bundled under `Assets/StreamingAs
    .\Assets\StreamingAssets\jdk\bin\java.exe -version
    ```
 
-   The `-version` output should start with `openjdk version "21.`.
+   The `-version` output should start with `openjdk version "21.`, for example:
+
+   ```text
+   openjdk version "21.0.13.1" 2026-11-17 LTS
+   OpenJDK Runtime Environment Temurin-21.0.13.1+2 (build 21.0.13.1+2-LTS)
+   OpenJDK 64-Bit Server VM Temurin-21.0.13.1+2 (build 21.0.13.1+2-LTS, mixed mode, sharing)
+   ```
 
    If `java.exe` is at `Assets/StreamingAssets/jdk/jdk-21.0.x+y/bin/java.exe`, you have one folder level too many. Move the contents up a level.
 

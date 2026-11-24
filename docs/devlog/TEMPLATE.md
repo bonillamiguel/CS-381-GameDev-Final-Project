@@ -1,6 +1,6 @@
-# Devlog: YYYY-MM-DD
+# Devlog N: <title> (YYYY-MM-DD)
 
-<!-- Copy this file to docs/devlog/YYYY-MM-DD.md and fill it in. -->
+<!-- Copy this file to docs/devlog/devlog-N.md (N = devlog number, e.g. devlog-2.md) and fill it in. -->
 
 **Author:**
 **Milestone:** M0 Setup / M1 Playtest / M2 Final / Stretch

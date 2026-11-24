@@ -90,6 +90,12 @@ The game runs Java code at runtime using a JDK bundled under `Assets/StreamingAs
 
 Unity imports the JDK the next time it opens, which takes a minute. Never commit anything from this folder.
 
+If you opened Unity before copying the JDK, Unity may have deleted `Assets/StreamingAssets.meta`, because the folder didn't exist yet, and `git status` will show it as deleted. Copy the JDK first, then restore the file:
+
+```powershell
+git restore Assets/StreamingAssets.meta
+```
+
 ## How we work
 
 1. **Issue.** Every piece of work starts as a GitHub issue that uses the Task or Bug template. Label it (`area:*`, `type:*`, `priority:*`) and add it to a milestone.

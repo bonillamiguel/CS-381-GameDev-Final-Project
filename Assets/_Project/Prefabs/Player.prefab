@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3653073934646609470}
   - component: {fileID: 4821693764470454438}
   - component: {fileID: 1041263149351948503}
+  - component: {fileID: 8403851054879066526}
+  - component: {fileID: 3288691415678710172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -123,7 +125,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &2390561686778731713
 CircleCollider2D:
@@ -237,6 +239,40 @@ MonoBehaviour:
   aimCamera: {fileID: 0}
   bodySprite: {fileID: 7580386867038637642}
   deadZone: 0.1
+--- !u!114 &8403851054879066526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609965771026969502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c198323909d749d1bf555c70767100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Core.Health
+  team: 0
+  maxHealth: 100
+  invincibilityAfterHit: 0
+  destroyOnDeath: 0
+--- !u!114 &3288691415678710172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609965771026969502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfd89eabe1bc4dc78888a896afda49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Player.PlayerDash
+  dashAction: {fileID: 4094340472503648899, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  duration: 0.15
+  invincibilityTime: 0.2
+  fallbackDistance: 4
+  fallbackCooldown: 1
+  fallbackCharges: 1
 --- !u!1 &6119439214748410040
 GameObject:
   m_ObjectHideFlags: 0
